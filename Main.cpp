@@ -3,16 +3,34 @@
 using namespace std;
 
 
-int main() {
-    int x, y;
+bool programActive;
+int x, y;
 
+void InitalValueCreation() {
     cout << "Return an X value\n";
     cin >> x;
     cout << "Return a Y value\n";
     cin >> y;
     string Coordinates = "(" + to_string(x) + "," + to_string(y) + ")";
     cout << Coordinates << "\n";
-    system("pause");
+}
+
+int main() {
+    programActive = true;
+    while (programActive) {
+        InitalValueCreation();
+        cout << "Do you want to exit the program?\n";
+        cout << programActive;
+        char yesNo;
+        cin >> yesNo;
+        if (yesNo == ('y' || 'Y')) {
+            programActive = false;
+            system("pause");
+        } else {
+            cout << programActive;
+            continue;
+        }
+    }
 }
 
 
