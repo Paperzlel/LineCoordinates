@@ -2,8 +2,6 @@
 #include <string>
 using namespace std;
 
-
-bool programActive;
 int x, y;
 
 void InitalValueCreation() {
@@ -16,18 +14,16 @@ void InitalValueCreation() {
 }
 
 int main() {
-    programActive = true;
-    while (programActive) {
-        InitalValueCreation();
+    InitalValueCreation();
+    while (true) {
         cout << "Do you want to exit the program?\n";
-        cout << programActive;
         char yesNo;
         cin >> yesNo;
-        if (yesNo == ('y' || 'Y')) {
-            programActive = false;
+        if (yesNo == 'y' || yesNo == 'Y') {
             system("pause");
+            break;
         } else {
-            cout << programActive;
+            InitalValueCreation();
             continue;
         }
     }
