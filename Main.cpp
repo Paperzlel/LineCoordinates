@@ -5,7 +5,7 @@ using namespace std;
 
 int x, y;
 int choice;
-string coordinates, version_id = "0.0.1";
+string coordinates, version_id = "0.1.1";
 
 //silly c++ things
 void Start();
@@ -32,7 +32,6 @@ void Quit() {
 
 void Start() {
     while (true) {
-        cout << "Line Graph version " << version_id << "\n";
         cout << "Please select an option from below.\n";
         cout << "1. Load the coordinates saved\n";
         cout << "2. Change the set of coordinates\n";
@@ -58,5 +57,6 @@ void Start() {
 }
 
 int main() {
+    cout << "Line Graph version " << version_id << "\n";
     Start();
 }
