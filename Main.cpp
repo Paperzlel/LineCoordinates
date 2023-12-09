@@ -1,36 +1,62 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 using namespace std;
 
 int x, y;
+int choice;
+string coordinates, version_id = "0.0.1";
+
+//silly c++ things
+void Start();
+
+void LoadCoordinates() {
+    coordinates = "(" + to_string(x) + "," + to_string(y) + ")";
+    cout << "The coordinates are " << coordinates << "\n";
+    system("Pause");
+    Start();
+}
 
 void InitalValueCreation() {
     cout << "Return an X value\n";
     cin >> x;
     cout << "Return a Y value\n";
     cin >> y;
-    string Coordinates = "(" + to_string(x) + "," + to_string(y) + ")";
-    cout << Coordinates << "\n";
+    LoadCoordinates();
 }
 
-int main() {
-    InitalValueCreation();
+void Quit() {
+    system("pause");
+    exit(0);
+}
+
+void Start() {
     while (true) {
-        cout << "Do you want to exit the program?\n";
-        char yesNo;
-        cin >> yesNo;
-        if (yesNo == 'y' || yesNo == 'Y') {
-            system("pause");
+        cout << "Line Graph version " << version_id << "\n";
+        cout << "Please select an option from below.\n";
+        cout << "1. Load the coordinates saved\n";
+        cout << "2. Change the set of coordinates\n";
+        cout << "3. Quit.\n";
+        cin >> choice;
+        if (choice == 1) {
+            LoadCoordinates();
             break;
-        } else {
+        }
+        else if (choice == 2) {
             InitalValueCreation();
-            continue;
+            break;
+        }
+        else if (choice == 3) {
+            Quit();
+            break;
+        }
+        else {
+        cout << "Not a valid option, please select again.";
+        continue;
         }
     }
 }
 
-
-//Part A: getting coordinates working (DONE you can ENTER COORDINATES)
-//Part B: Making them into a set value that can be accessed during the program
-//Part C: Allowing the program to interpret a pair of coordinates into a line using y = mx + c
-//Part D: anything else
+int main() {
+    Start();
+}
