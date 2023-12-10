@@ -4,10 +4,10 @@
 ## Usage
 ### Currently avaialble features:
  - can store 1 set of coordinates in the program
+   - coordinates saved on a local textfile
  - Can load them or replace them at any point
 
 ## TO-DO:
- - loading the coordinate set from storage
  - create 2 sets of coordinates and create a line sequence for them
  - Visualising the grpahs
  - Other sequences (quadratic, cubic, reciprocal, etc.)
