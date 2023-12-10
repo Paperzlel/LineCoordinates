@@ -1,4 +1,4 @@
-# LineCoordinates
+# LineGraph
  A linear sequence line finder and creator for graphs
 
 ## Usage
