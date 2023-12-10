@@ -1,28 +1,45 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <fstream>
 using namespace std;
 
-int x, y;
-int choice;
-string coordinates, version_id = "0.1.1";
+int x, y, choice;
+string coordinates, version_id = "0.2.0";
 
-//silly c++ things
-void Start();
+void MainMenu();
 
-void LoadCoordinates() {
-    coordinates = "(" + to_string(x) + "," + to_string(y) + ")";
-    cout << "The coordinates are " << coordinates << "\n";
-    system("Pause");
-    Start();
+void ReturnToMenu() {
+    system("pause");
+    MainMenu();
 }
 
-void InitalValueCreation() {
+void WriteCoordinatesToFile() {
+    ofstream writingFile("saved.txt");
+    cout << "Writing to file...\n";
+    writingFile << coordinates << endl;
+    cout << "Written to file!\n";
+    writingFile.close();
+    ReturnToMenu();
+}
+
+void ReadCoordinatesFromFile() {
+    ifstream readFile("saved.txt");
+    while (getline(readFile, coordinates)) {
+        cout << "Your coordinates are: " << coordinates << endl;
+    }
+    readFile.close();
+    ReturnToMenu();
+}
+
+void CreateCoordinates() {
     cout << "Return an X value\n";
     cin >> x;
     cout << "Return a Y value\n";
     cin >> y;
-    LoadCoordinates();
+    coordinates = "(" + to_string(x) + "," + to_string(y) + ")";
+    cout << "Your coordinates are: " << coordinates << endl;
+    WriteCoordinatesToFile();
 }
 
 void Quit() {
@@ -30,19 +47,19 @@ void Quit() {
     exit(0);
 }
 
-void Start() {
+void MainMenu() {
     while (true) {
-        cout << "Please select an option from below.\n";
+        cout << "Select an option from below.\n";
         cout << "1. Load the coordinates saved\n";
         cout << "2. Change the set of coordinates\n";
         cout << "3. Quit.\n";
         cin >> choice;
         if (choice == 1) {
-            LoadCoordinates();
+            ReadCoordinatesFromFile();
             break;
         }
         else if (choice == 2) {
-            InitalValueCreation();
+            CreateCoordinates();
             break;
         }
         else if (choice == 3) {
@@ -58,5 +75,5 @@ void Start() {
 
 int main() {
     cout << "Line Graph version " << version_id << "\n";
-    Start();
+    MainMenu();
 }
