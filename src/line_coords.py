@@ -33,10 +33,10 @@ def check_str_for_coords(string):
     ans = re.search("^(.*[0-9].*,.*[0-9].*)$", string)
     print(ans)
     if ans:
-        print("String is a set of coordinates with numbers")
+        print("String is a set of coordinates with numbers \n")
         parse_line_as_x_and_y(string)
     else:
-        print("String doesn't contain a set of coordinates :(")
+        print("ERROR: String doesn't contain a set of coordinates \n")
     
 
 def make_string_of_vars(x, y):
