@@ -2,7 +2,7 @@
  A linear sequence line finder and creator for graphs
 
 ## Features
-Currently it has the ability to save and load a set of coordinates from a .txt file. You can even exit the application!
+As of 0.3, LineGraph hosts the ability to save and load coordinates to and from a file, and is able to decode those coordinates into a linear equation! It also has a completely useless error logger, which may prove handy for finding out what went wrong.
 
 ## Using LineGraph
 0.2.0 and lower are made with C++, later builds are with Python. As of updating, this currently does not have a general-use build that is a download-and-go option.
@@ -10,10 +10,9 @@ To run it, open up any Python compiler or IDE and select the "Run" option. To us
 
 ## TODO
 I want to make this an incredible project, and with graphs there's a lot to use. I'll detail all the ones I want here for now:
-1. Have a linear sequence decoder (find x, y, gradient, y-intercept)
-2. Give support for other sequences (quadratic, cubic, reciprocal)
-3. Visualise all this on a GUI
-4. 3D support? Maybe separate
+1. Give support for other sequences (quadratic, cubic, reciprocal)
+2. Visualise all this on a GUI
+3. 3D support? Maybe separate
 
 ## Message Level Priority
 This is a little confusing, as my way of visualising what is and isn't important may be different to your use case, so I want to make it clear what each error level stand for when using the project.
