@@ -7,7 +7,7 @@ msg_level = {
     "error": 3
 }
 
-def log_msg(text, level):
+def log_msg(text : str, level : int) -> None:
     user_time = datetime.now()
     with open("log.txt", 'a') as file:
         if level == 1:

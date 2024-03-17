@@ -29,7 +29,7 @@ def options() -> bool:
         logger.log_msg("Invalid input!", 3)
         return True
 
-def main_menu():
+def main_menu() -> None:
     options_loop = True
     while options_loop:
         time.sleep(1)
@@ -44,7 +44,7 @@ def main_menu():
         options_loop = options()
 
 
-def check_str_for_coords(string):
+def check_str_for_coords(string) -> None:
     # google python regex when you need this again
     ans = re.findall("^(.*[0-9].*,.*[0-9].*)$", string)
     if ans == None:
@@ -61,20 +61,20 @@ def check_str_for_coords(string):
             parse_line_as_x_and_y(string)
     
 
-def make_string_of_vars(x, y):
+def make_string_of_vars(x, y) -> None:
     x = x.strip()
     y = y.strip()
     global coordinate_str 
     coordinate_str = "(" + str(x) + "," + str(y) + ")"
     print(coordinate_str)
 
-def set_coordinates():
+def set_coordinates() -> None:
     x = input("Please enter an X value: \n")
     y = input("Please enter a Y value: \n")
     make_string_of_vars(x, y)
     open_file_and_set_file_type("a", coordinate_str)
 
-def load_coords():
+def load_coords() -> None:
     try:
         file = open("saved.txt", "r")
     except:
@@ -82,9 +82,9 @@ def load_coords():
     else:
         open_file_and_set_file_type("r", None)
 
-def parse_line_as_x_and_y(line):
+def parse_line_as_x_and_y(line) -> None:
     # Add z here when doing 3D
-    obj = re.findall(r"\d+", line)
+    obj = re.findall("-*"r"\d+", line)
     if len(obj) % 2 != 0:
         logger.log_msg("Invalid number of numbers!", 3)
     else:
@@ -96,7 +96,7 @@ def parse_line_as_x_and_y(line):
                 y = obj[i]
                 to_obj_array(y)
 
-def open_file_and_set_file_type(type, text):
+def open_file_and_set_file_type(type, text) -> None:
     with open("saved.txt", type) as file:
         if type == 'r':
             check_str_for_coords(file.readline())
@@ -104,13 +104,13 @@ def open_file_and_set_file_type(type, text):
             file.write(text)
         file.close()
 
-def remove_file():
+def remove_file() -> None:
     if os.path.exists("saved.txt"):
         os.remove("saved.txt")
     else:
         logger.log_msg("File doesn't exist!", 3)
 
-def clear_file():
+def clear_file() -> None:
     with open("saved.txt", 'w') as file:
         file.write("")
         file.close()
@@ -145,7 +145,7 @@ def return_equation(m, c) -> str:
         equation_str = "y = " + str(m) + "x + " + str(c)
     return equation_str
 
-def comp_coord():
+def comp_coord() -> None:
     obj_array.clear()
     load_coords()
     m = find_gradient(obj_array)
