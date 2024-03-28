@@ -1,3 +1,6 @@
+# Logger.py is just a silly old logger program.
+# Its mainly just to warn a person what happened and when so that an issue can be tracked down easily
+
 from datetime import datetime
 
 msg_level = {
